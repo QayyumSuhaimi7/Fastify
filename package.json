@@ -5,13 +5,15 @@
   "scripts": {
     "start": "node server",
     "dev": "nodemon server"
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@fastify/swagger": "^8.15.0",
+    "@fastify/swagger-ui": "^4.1.0",
+    "and": "^0.0.3",
     "fastify": "^4.28.1",
     "fastify-swagger": "^5.2.0",
     "uuid": "^10.0.0"
