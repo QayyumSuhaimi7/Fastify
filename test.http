@@ -4,3 +4,11 @@ GET http://localhost:5000/items HTTP/1.1
 
 ### Get Single Item
 GET http://localhost:5000/items/1 HTTP/1.1
+
+### Add Item
+POST http://localhost:5000/items HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "New Item"
+}
