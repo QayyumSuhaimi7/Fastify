@@ -1,4 +1,4 @@
-const {getItems, getItem, addItem, deleteItem} = require('../controllers/items')
+const { getItems, getItem, addItem, deleteItem, updateItem } = require('../controllers/items')
 
 // Item schema 
 const Item = {
@@ -37,7 +37,7 @@ const postItemOpts = {
             type: 'object',
             required: ['name'],
             properties: {
-                name: {type: 'string'},
+                name: { type: 'string' },
             },
         },
         response: {
@@ -53,13 +53,23 @@ const deleteItemOpts = {
             200: {
                 type: 'object',
                 properties: {
-                    message: {type: 'string'}
+                    message: { type: 'string' }
                 }
             },
         },
     },
     handler: deleteItem,
 }
+
+const updateItemOpts = {
+    schema: {
+        response: {
+            200: Item,
+        },
+    },
+    handler: updateItem,
+}
+
 
 function itemRoutes(fastify, options, done) {
 
@@ -74,6 +84,9 @@ function itemRoutes(fastify, options, done) {
 
     // Delete Item
     fastify.delete('/items/:id', deleteItemOpts)
+
+    // Update Item
+    fastify.put('/items/:id', updateItemOpts)
 
     done()
 }
